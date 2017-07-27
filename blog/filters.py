@@ -1,4 +1,4 @@
-from . imprt app
+from . import app
 from flask import Markup
 import mistune as md
 
@@ -10,4 +10,4 @@ def markdown(text):
 def dateformat(date, format):
     if not date:
         return None
-    return date.srtftime(format)
+    return date.strftime(format)

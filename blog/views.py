@@ -9,5 +9,5 @@ def entries():
     entries = entries.order_by(Entry.datetime.desc())
     entries = entries.all()
     return render_template("entries.html",
-                           entries=entries
-                           )
+        entries=entries
+    )
