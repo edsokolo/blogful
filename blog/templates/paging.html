@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    Entries per page:
+</h1>
+
+<form roles="form" method="POST">
+    <div class=form-group">
+        <input type="text" id = "paginate" name="paginate" class="form-control" placeholder="Entries per page: {{PAGINATE_BY}}" required>
+    </div>
+    <button type="submit" class="btn btn-default"><a href="{{ url_for('entries') }}">Submit</a></button>
+
+</form>
+{% endblock %}

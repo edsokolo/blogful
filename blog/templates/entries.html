@@ -2,8 +2,45 @@
 {% extends "base.html" %}
 {% block content %}
 
+<form roles="form" class="form-inline" method="POST" style="margin-bottom: 1px;>
+    <div class="col-xs-4">
+        <div class="form-group">
+            <input type="text" class="form-control" id="paginate" name="paginate" placeholder="Entries per page: {{paginate}}" required>
+            <a class="btn btn-default" href = "#">Change Paging</a>
+        </div>
+    {{ paginate }}
+    </div>
+</form>
+<ul class ="pager">
+    {% if has_next %}
+    <li class="previous">
+        <a href="{{ url_for('entries', page = page + 1 ) }}" > &larr; Older</a>
+    </li>
+    {% endif %}
+    {% if has_prev %}
+    <li class="next">
+        <a href="{{ url_for('entries', page = page - 1 )  }}" > &rarr; Newer</a>
+    </li>
+    {% endif %}
+    {% if has_next or has_prev  %}
+    {% endif %}
+</ul>
+
 {% for entry in entries %}
-{{ macros.render_entry(entry) }}
+{{ macros.render_entry1(entry) }}
 {% endfor %}
+
+<ul class ="pager">
+    {% if has_next %}
+    <li class="previous">
+        <a href="{{ url_for('entries', page = page + 1 ) }}" > &larr; Older</a>
+    </li>
+    {% endif %}
+    {% if has_prev %}
+    <li class="next">
+        <a href="{{ url_for('entries', page = page - 1 )  }}" > &rarr; Newer</a>
+    </li>
+    {% endif %}
+</ul>
 
 {% endblock %}
