@@ -3,12 +3,13 @@
 {% block content %}
 
 <form roles="form" class="form-inline" method="POST" style="margin-bottom: 1px;>
-    <div class="col-xs-4">
-        <div class="form-group">
-            <input type="text" class="form-control" id="paginate" name="paginate" placeholder="Entries per page: {{paginate}}" required>
+    <div class="row">
+         <div class="col-xs-3">
             <a class="btn btn-default" href = "#">Change Paging</a>
+         </div>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="paginate" name="paginate" placeholder="Entries per page: {{paginate}}" required>
         </div>
-    {{ paginate }}
     </div>
 </form>
 <ul class ="pager">
