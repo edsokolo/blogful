@@ -1,0 +1,12 @@
+language python
+python:
+    - "2.7"
+install: python -m pip install -r requirements
+env:
+    - CONFIG_PATH=blog.config.TravisConfig
+before_script:
+    - psql -c 'create database "blogful-test":' -U postgres
+script:
+    - PYTHONPATH=. python test/test_filters.py
+    - PYTHONPATH=. python test/test_views_integration.py
+    - PYTHONPATH=. python test/test_views_acceptance.py
