@@ -1,6 +1,6 @@
 import os
 import unittest
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 from werkzeug.security import generate_password_hash
 
