@@ -1,3 +1,4 @@
+sudo: required
 language: python
 python:
     - "2.7"
@@ -6,6 +7,14 @@ install:
     - python -m pip install -r requirements.txt
 env:
     - CONFIG_PATH=blog.config.TravisConfig
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 
 before_script:
     - psql -c 'create database "blogful-test";' -U postgres
