@@ -3,6 +3,7 @@ import unittest
 import multiprocessing
 import time
 from urlparse import urlparse
+from selenium import webdriver
 
 from werkzeug.security import generate_password_hash
 from splinter import Browser
@@ -16,7 +17,8 @@ from blog.database import Base, engine, session, User, Entry
 class TestViews(unittest.TestCase):
     def setUp(self):
         """ Test setup """
-        self.browser = Browser('firefox')
+        driver = webdriver.Chrome('/usr/local/Cellar/chromedriver/2.31/bin/chromedriver')
+        self.browser = Browser('chrome')
 
         # Set up the tables in the database
         Base.metadata.create_all(engine)
