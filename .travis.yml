@@ -2,9 +2,11 @@ language: python
 python:
     - "2.7"
 
+before_install:
+  - wget https://chromedriver.googlecode.com/files/chromedriver_linux32_20.0.1133.0.zip
+
 install:
     - python -m pip install -r requirements.txt
-    - wget https://chromedriver.googlecode.com/files/chromedriver_linux32_20.0.1133.0.zip
     - unzip chromedriver_linux32_20.0.1133.0.zip
 env:
     - CONFIG_PATH=blog.config.TravisConfig
