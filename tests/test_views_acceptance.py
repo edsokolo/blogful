@@ -17,7 +17,6 @@ from blog.database import Base, engine, session, User, Entry
 class TestViews(unittest.TestCase):
     def setUp(self):
         """ Test setup """
-        driver = webdriver.Chrome('/usr/local/Cellar/chromedriver/2.31/bin/chromedriver')
         self.browser = Browser('chrome')
 
         # Set up the tables in the database
